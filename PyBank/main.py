@@ -20,7 +20,7 @@ with open(budget_csv, 'r',encoding="utf-8") as csvfile:
     revenue_change = []
     monthly_change = []
 
-# to collect the total months
+# Append / add rows to the lists
     for row in csvreader:
         month.append(row[0])
         revenue.append(row[1])
@@ -57,16 +57,16 @@ with open(budget_csv, 'r',encoding="utf-8") as csvfile:
     I = revenue_change.index(profit_decrease)
     month_decrease = month[I+1]
     #print(f"Greatest Decrease in Profits: {month_decrease} (${profit_decrease})")
-# to print to a TEXT file
-    textoutput = os.path.join('..', 'PyBank', 'budget_summary.txt')
+# to create, and write to a TEXT file
+    textoutput = os.path.join('Analysis', 'budget_summary.txt')
 with open (textoutput, 'w', newline='') as budget:
     write = csv.writer(budget)
     write.writerows([
             ["Financial Analysis for budget_data.csv"],
             ["-------------------------------------"],
-            ["Total number of months: " + str(len(month))],
-            ["Total Revenue in period: $ " + str(total_revenue)],
-            ["Average monthly change in Revenue : $" + str(monthly_change)],
+            ["Total months: " + str(len(month))],
+            ["Total: $ " + str(total_revenue)],
+            ["Average Change: $" + str(monthly_change)],
             ["Greatest Increase in Profits:" +str(month_increase) + "($" +str(profit_increase) +")"],
             ["Greatest Decrease in Profits:" +str(month_decrease) + "($" +str(profit_decrease) +")"]
     ])
@@ -75,13 +75,11 @@ with open (textoutput, 'w', newline='') as budget:
 #all the print statements together now
     print(f'Financial Analysis'+'\n')
     print(f'----------------------------'+'\n')
+    print("Total months: " + str(len(month)))
 
-
-    print("Total number of months: " + str(len(month)))
-
-    print("Total Revenue in period: $ " + str(total_revenue))
+    print("Total: $ " + str(total_revenue))
       
-    print("Average monthly change in Revenue : $" + str(monthly_change))
+    print("Average Change: $" + str(monthly_change))
 
     print(f"Greatest Increase in Profits: {month_increase} (${profit_increase})")
 
@@ -89,14 +87,4 @@ with open (textoutput, 'w', newline='') as budget:
   
      
     
-     #print(type(row))
-        # this will print months
-        #print row[1]
-# this will print profit, and loss = sum this
-        #print(row[1])
-        #changes in profit,and losses, and find the the average of the changes
-        # find maximum (Date included)
-        #find minimum  (date included)
-        #print
-        #create txt file
-        #write to the txt file
+     #
